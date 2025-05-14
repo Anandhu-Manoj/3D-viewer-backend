@@ -9,15 +9,7 @@ const allowedOrigins = [
   'https://glb-viewer-673p2p6ds-anandhu-manojs-projects-2d7d8f6e.vercel.app'
 ];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use('/models', express.static(path.join(__dirname, 'temp-uploads')));
